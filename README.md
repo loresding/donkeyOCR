@@ -1,11 +1,13 @@
 # donkeyOCR - 中文OCR软件
-> 用pyside6和python3.9写的中文OCR软件
-> Chinese OCR software using PySide6 and Python3.9pp
+
+
+> 用pyside6和python3.9写的中文OCR软件, 主要用于一些生活工作需要把文字识别出来的场景，提供`截图`、`上传图片`、`上传PDF`来上传图片进行OCR识别
+
+> Chinese OCR software using PySide6 and Python3.9
 
 ## 界面(UI)
 ![donkeyOCR](https://raw.githubusercontent.com/loresding/images/main/donkeyOCR-example.png)
 
-可以通过`截图`、`上传图片`、`上传PDF`来上传图片进行OCR识别
 
 ## 贡献者(DONATE)
 > 项目界面灵感来自于**PyDarcula**🔗 https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6
