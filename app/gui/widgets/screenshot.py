@@ -2,11 +2,14 @@
 截屏操作，来源于@ardeas https://blog.csdn.net/u010501845/article/details/124931326 adeas
 作者: LoresDing
 时间: 2023/03/20
+用于识别截图widget
 """
 import os
 import shutil
-from modules import *
-from widgets import *
+from settings import Settings
+from PySide6.QtWidgets import QToolBar, QApplication, QWidget
+from PySide6.QtCore import Qt, QPoint, QRect, QRectF, QPointF, QSizeF, Signal
+from PySide6.QtGui import QIcon, QAction, QPainter, QPen, QPalette, QBrush
 
 class ScreenshotToolBar(QToolBar):
     """
@@ -41,7 +44,7 @@ class ScreenshotToolBar(QToolBar):
         self._at_exit = QAction(QIcon(r"images/icons/cil-account-logout.png"), '退出', self, triggered=self.exit)
         self.addAction(self._at_exit)
         # 绑定事件方法
-        self.actionTriggered.connect(self.on_action_triggered)
+        self.actionTriggered.connect(self.onActionTriggered)
         # 所有的action
         self.actions = [self._at_exit, self._at_comfirm]
         # 初始化样式
@@ -87,7 +90,7 @@ class ScreenshotToolBar(QToolBar):
         # 退出
         self.exit()
     
-    def on_action_triggered(self, action):
+    def onActionTriggered(self, action):
         """
         根据按钮更换样式
         """
@@ -153,7 +156,7 @@ class ScreenshotWidget(QWidget):
             painter.setPen(QPen(Qt.red, 2, Qt.SolidLine))
             painter.drawRect(rect)
     
-    def capture_screen(self):
+    def captureScreen(self):
         """
         截屏
         """
@@ -174,5 +177,5 @@ class ScreenshotWidget(QWidget):
 
     def start(self):
         self.toolbar.init()
-        self.capture_screen()
+        self.captureScreen()
         self.showFullScreen()

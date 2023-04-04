@@ -2,11 +2,11 @@
 自定义线程
 作者: LoresDing
 时间: 2023/03/22
+识别进程
 """
-import json
-from modules import *
-from widgets import *
-from .core import chinese_ocr
+from PySide6.QtCore import QThread, Signal
+from core import chineseOcr
+from settings import Settings
 
 class OCRThread(QThread):
     """
@@ -20,8 +20,6 @@ class OCRThread(QThread):
         """
         执行ocr
         """
-        for index, lines in chinese_ocr(Settings.CACHE_PATH, 
-                                        Settings.CNOCR_MODEL_NAME, 
-                                        Settings.CNOCR_MODEL_ROOT):
+        for index, lines in chineseOcr():
             self.signal.emit(index, lines)
             

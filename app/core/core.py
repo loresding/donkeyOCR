@@ -6,23 +6,29 @@
 import os
 import re
 import fitz
+import json
 import shutil
 from cnocr import CnOcr
+from settings import Settings
 
-def chinese_ocr(path, model_name, root):
+ocr = CnOcr(rec_root=Settings.CNOCR_MODEL_ROOT, det_root=Settings.CNOCR_MODEL_ROOT)
+
+def chineseOcr():
     """
     利用cnocr从图片识别文字
     """
-    ocr = CnOcr(model_name=model_name, root=root)
+    path = Settings.CACHE_PATH
     filenames = sorted(os.listdir(path))
     for index, filename in enumerate(filenames):
         image_path = os.path.join(path, filename)
-        lines = ocr.ocr(image_path)
-        lines = "\n".join([line[0] for line in lines])
-        yield index, lines
- 
+        recognitions = ocr.ocr(image_path)
+        for i, item in enumerate(recognitions):
+            position = item["position"]
+            item["position"] = [[int(pos[0]), int(pos[1])] for pos in position]
+            recognitions[i] = item
+        yield index, json.dumps(recognitions)
 
-def get_images_from_pdf(path, save_path):
+def getPdfImages(path, save_path):
     """
     从pdf获取图片
     """

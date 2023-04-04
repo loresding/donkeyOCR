@@ -6,7 +6,9 @@
 > Chinese OCR software using PySide6 and Python3.9
 
 ## 界面(UI)
-![donkeyOCR](https://raw.githubusercontent.com/loresding/images/main/donkeyOCR-example.png)
+![donkeyOCR](https://raw.githubusercontent.com/loresding/images/main/donkeyOCRv2.0.0.png)
+
+> 视频链接: https://www.bilibili.com/video/BV1zm4y1q7k8/?spm_id_from=333.999.0.0&vd_source=8e13459a5cfc1c04b7e26e5a0da726d0
 
 
 ## 贡献者(DONATE)
@@ -16,9 +18,9 @@
 
 ## 安装包下载(installer)
 
-**百度网盘**🔗 https://pan.baidu.com/s/1icyQpq5_06JaovZqAQebfQ 
+**百度网盘**🔗 https://pan.baidu.com/s/1fJtNSwctQxIEhdtmHadS6Q 
 
-**提取码**：8t7r 
+**提取码**：yn0h 
 
 ## 使用方法
 解压后直接运行**donkeyOCR.exe**
